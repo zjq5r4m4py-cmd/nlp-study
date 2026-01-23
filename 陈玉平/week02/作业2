@@ -1,0 +1,87 @@
+import torch
+import torch.nn as nn
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1、生成测试数据
+# 生成输入数据（0到2π之间均匀分布）
+x_numpy = np.linspace(0, 2 * np.pi, 1000).reshape(-1, 1)  # (1000, 1)
+# 计算sin值并添加少量噪声
+y_numpy = np.sin(x_numpy) + 0.1 * np.random.randn(*x_numpy.shape)  # 加噪声增强泛化性
+
+# 转换为张量
+# 转换为torch张量（float32类型）
+x = torch.from_numpy(x_numpy).float()
+y = torch.from_numpy(y_numpy).float()
+print("数据生成完成，数据形状：")
+print(f"输入x形状: {x.shape}, 输出y形状: {y.shape}")
+print("---" * 15)
+# 2、创建模型
+class SinFittingNet(nn.Module):
+    def __init__(self):
+        super(SinFittingNet, self).__init__()
+        # 定义多层全连接层：输入层(1) -> 隐藏层1(32) -> 隐藏层2(64) -> 隐藏层3(32) -> 输出层(1)
+        self.layers = nn.Sequential(
+            nn.Linear(1, 32),  # 输入层：1维特征
+            nn.ReLU(),  # 非线性激活
+            nn.Linear(32, 64),  # 隐藏层1
+            nn.ReLU(),  # 非线性激活
+            nn.Linear(64, 32),  # 隐藏层2
+            nn.ReLU(),  # 非线性激活
+            nn.Linear(32, 1)  # 输出层：预测sin值（1维）
+        )
+
+    def forward(self, x):
+        # 前向传播
+        return self.layers(x)
+# 实例化模型
+model = SinFittingNet()
+print("神经网络结构：")
+print(model)
+# 3、定义损失函数和优化器
+loss_fn = nn.MSELoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+
+# 4、训练模型
+num_epochs = 5000  # 训练轮数
+loss_history = []  # 记录损失变化
+
+for epoch in range(num_epochs):
+    # 前向传播
+    y_pred = model(x)
+    loss = loss_fn(y_pred, y)
+
+    # 反向传播 + 优化
+    optimizer.zero_grad()  # 清空梯度
+    loss.backward()  # 计算梯度
+    optimizer.step()  # 更新参数
+
+    # 记录损失
+    loss_history.append(loss.item())
+
+    # 每500轮打印一次损失
+    if (epoch + 1) % 500 == 0:
+        print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {loss.item():.6f}')
+
+print("\n训练完成！")
+print("---" * 15)
+
+# 5、输出结果
+# 关闭梯度计算（仅预测）
+with torch.no_grad():
+    y_pred = model(x).numpy()  # 转换为numpy数组用于绘图
+
+# 绘制结果
+plt.figure(figsize=(12, 8))
+plt.subplot(2, 1, 2)
+plt.scatter(x_numpy, y_numpy, label='Raw Data (with noise)', color='lightblue', alpha=0.5, s=5)
+plt.plot(x_numpy, np.sin(x_numpy), label='True sin(x)', color='green', linewidth=2, linestyle='--')
+plt.plot(x_numpy, y_pred, label='Fitted Curve', color='red', linewidth=2)
+plt.xlabel('x (0 to 2π)')
+plt.ylabel('sin(x)')
+plt.legend()
+plt.title('sin(x)')
+plt.grid(True, alpha=0.3)
+
+plt.tight_layout()  # 调整子图间距
+plt.show()
