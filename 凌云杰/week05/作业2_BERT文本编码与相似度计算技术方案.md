@@ -67,6 +67,17 @@ for faq in faqs:
 
 流程图
 
+graph TD
+    A[用户提问] --> B[文本预处理]
+    B --> C[BERT编码]
+    C --> D[生成用户提问向量]
+    E[FAQ数据库] --> F[预处理与编码]
+    F --> G[存储FAQ向量]
+    D --> H[计算相似度]
+    G --> H
+    H --> I[选择最高相似度FAQ]
+    I --> J[返回匹配结果]
+
 ![](/Users/papa/Downloads/流程图.png)
 
 优化策略
