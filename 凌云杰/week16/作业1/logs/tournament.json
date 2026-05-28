@@ -1,0 +1,51 @@
+{
+  "evaluation": {
+    "games": 5,
+    "win_rate": {
+      "wolves": 0.8,
+      "good": 0.2
+    },
+    "avg_days": 2.6,
+    "wolf_exile_precision": 0.2727272727272727,
+    "role_survival": {
+      "hunter": 0.2,
+      "seer": 0.0,
+      "villager": 0.4666666666666667,
+      "werewolf": 0.6,
+      "witch": 0.2
+    }
+  },
+  "latest_review": [
+    "预言家共验人 1 次，最后一次查验 2 号。",
+    "狼人夜晚刀中神职 2/3 次，体现了隐藏身份识别能力。",
+    "白天放逐狼人 0/2 次，反映公共讨论与投票质量。",
+    "最终胜方：wolves，原因：狼人数量不少于好人数量。"
+  ],
+  "games": [
+    {
+      "seed": 42,
+      "winner": "wolves",
+      "reason": "狼人数量不少于好人数量。"
+    },
+    {
+      "seed": 43,
+      "winner": "good",
+      "reason": "所有狼人出局。"
+    },
+    {
+      "seed": 44,
+      "winner": "wolves",
+      "reason": "狼人数量不少于好人数量。"
+    },
+    {
+      "seed": 45,
+      "winner": "wolves",
+      "reason": "狼人数量不少于好人数量。"
+    },
+    {
+      "seed": 46,
+      "winner": "wolves",
+      "reason": "狼人数量不少于好人数量。"
+    }
+  ]
+}

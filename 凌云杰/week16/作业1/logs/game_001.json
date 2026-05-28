@@ -1,0 +1,502 @@
+{
+  "seed": 42,
+  "roles": {
+    "1": "witch",
+    "2": "hunter",
+    "3": "villager",
+    "4": "villager",
+    "5": "seer",
+    "6": "villager",
+    "7": "werewolf",
+    "8": "werewolf"
+  },
+  "winner": "wolves",
+  "reason": "狼人数量不少于好人数量。",
+  "events": [
+    {
+      "type": "setup",
+      "day": 0,
+      "actor": "engine",
+      "text": "角色分配完成，私有身份已下发。"
+    },
+    {
+      "type": "phase",
+      "day": 1,
+      "actor": "engine",
+      "phase": "night",
+      "text": "第 1 夜开始。"
+    },
+    {
+      "type": "private_action",
+      "day": 1,
+      "actor": 5,
+      "action": "seer_check",
+      "target": 3,
+      "result": "good"
+    },
+    {
+      "type": "private_action",
+      "day": 1,
+      "actor": "wolves",
+      "action": "wolf_kill",
+      "target": 2,
+      "actors": [
+        7,
+        8
+      ]
+    },
+    {
+      "type": "private_action",
+      "day": 1,
+      "actor": 1,
+      "action": "witch_save",
+      "target": 2
+    },
+    {
+      "type": "night_result",
+      "day": 1,
+      "actor": "engine",
+      "victim": 2,
+      "saved": true,
+      "poisoned": null,
+      "deaths": []
+    },
+    {
+      "type": "phase",
+      "day": 1,
+      "actor": "engine",
+      "phase": "day",
+      "text": "第 1 天发言开始。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 1,
+      "text": "我会重点看投票一致性和夜晚死亡信息，今天先听预言家和被怀疑位的解释。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 2,
+      "text": "我会站边信息更完整的人，如果被强推，我会优先带走最高嫌疑位。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 3,
+      "text": "目前我更关注 3 号的行为，建议大家把发言和投票逻辑对齐。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 4,
+      "text": "目前我更关注 2 号的行为，建议大家把发言和投票逻辑对齐。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 5,
+      "text": "我是预言家视角，昨晚验到 3 号是好人阵营，建议大家围绕这个信息投票。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 6,
+      "text": "目前我更关注 7 号的行为，建议大家把发言和投票逻辑对齐。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 7,
+      "text": "我倾向于怀疑 4 号，白天发言比较保守，可能在隐藏视角。"
+    },
+    {
+      "type": "speech",
+      "day": 1,
+      "actor": 8,
+      "text": "我倾向于怀疑 6 号，白天发言比较保守，可能在隐藏视角。"
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 1,
+      "target": 6
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 2,
+      "target": 4
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 3,
+      "target": 7
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 4,
+      "target": 2
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 5,
+      "target": 2
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 6,
+      "target": 1
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 7,
+      "target": 5
+    },
+    {
+      "type": "vote",
+      "day": 1,
+      "actor": 8,
+      "target": 5
+    },
+    {
+      "type": "death",
+      "day": 1,
+      "actor": "engine",
+      "target": 2,
+      "role": "hunter",
+      "cause": "exile"
+    },
+    {
+      "type": "exile",
+      "day": 1,
+      "actor": "engine",
+      "target": 2,
+      "role": "hunter",
+      "voters": [
+        4,
+        5
+      ],
+      "text": "2 号被放逐，身份为猎人。"
+    },
+    {
+      "type": "death",
+      "day": 1,
+      "actor": "engine",
+      "target": 6,
+      "role": "villager",
+      "cause": "hunter"
+    },
+    {
+      "type": "hunter_shot",
+      "day": 1,
+      "actor": 2,
+      "target": 6,
+      "text": "猎人 2 号带走 6 号。"
+    },
+    {
+      "type": "phase",
+      "day": 2,
+      "actor": "engine",
+      "phase": "night",
+      "text": "第 2 夜开始。"
+    },
+    {
+      "type": "private_action",
+      "day": 2,
+      "actor": 5,
+      "action": "seer_check",
+      "target": 8,
+      "result": "wolves"
+    },
+    {
+      "type": "private_action",
+      "day": 2,
+      "actor": "wolves",
+      "action": "wolf_kill",
+      "target": 1,
+      "actors": [
+        7,
+        8
+      ]
+    },
+    {
+      "type": "death",
+      "day": 2,
+      "actor": "engine",
+      "target": 1,
+      "role": "witch",
+      "cause": "night"
+    },
+    {
+      "type": "night_result",
+      "day": 2,
+      "actor": "engine",
+      "victim": 1,
+      "saved": false,
+      "poisoned": null,
+      "deaths": [
+        1
+      ]
+    },
+    {
+      "type": "phase",
+      "day": 2,
+      "actor": "engine",
+      "phase": "day",
+      "text": "第 2 天发言开始。"
+    },
+    {
+      "type": "speech",
+      "day": 2,
+      "actor": 3,
+      "text": "目前我更关注 7 号的行为，建议大家把发言和投票逻辑对齐。"
+    },
+    {
+      "type": "speech",
+      "day": 2,
+      "actor": 4,
+      "text": "目前我更关注 3 号的行为，建议大家把发言和投票逻辑对齐。"
+    },
+    {
+      "type": "speech",
+      "day": 2,
+      "actor": 5,
+      "text": "我是预言家视角，昨晚验到 8 号是狼人阵营，建议大家围绕这个信息投票。"
+    },
+    {
+      "type": "speech",
+      "day": 2,
+      "actor": 7,
+      "text": "我倾向于怀疑 3 号，白天发言比较保守，可能在隐藏视角。"
+    },
+    {
+      "type": "speech",
+      "day": 2,
+      "actor": 8,
+      "text": "我倾向于怀疑 5 号，白天发言比较保守，可能在隐藏视角。"
+    },
+    {
+      "type": "vote",
+      "day": 2,
+      "actor": 3,
+      "target": 8
+    },
+    {
+      "type": "vote",
+      "day": 2,
+      "actor": 4,
+      "target": 8
+    },
+    {
+      "type": "vote",
+      "day": 2,
+      "actor": 5,
+      "target": 8
+    },
+    {
+      "type": "vote",
+      "day": 2,
+      "actor": 7,
+      "target": 5
+    },
+    {
+      "type": "vote",
+      "day": 2,
+      "actor": 8,
+      "target": 3
+    },
+    {
+      "type": "death",
+      "day": 2,
+      "actor": "engine",
+      "target": 8,
+      "role": "werewolf",
+      "cause": "exile"
+    },
+    {
+      "type": "exile",
+      "day": 2,
+      "actor": "engine",
+      "target": 8,
+      "role": "werewolf",
+      "voters": [
+        3,
+        4,
+        5
+      ],
+      "text": "8 号被放逐，身份为狼人。"
+    },
+    {
+      "type": "phase",
+      "day": 3,
+      "actor": "engine",
+      "phase": "night",
+      "text": "第 3 夜开始。"
+    },
+    {
+      "type": "private_action",
+      "day": 3,
+      "actor": 5,
+      "action": "seer_check",
+      "target": 7,
+      "result": "wolves"
+    },
+    {
+      "type": "private_action",
+      "day": 3,
+      "actor": "wolves",
+      "action": "wolf_kill",
+      "target": 5,
+      "actors": [
+        7
+      ]
+    },
+    {
+      "type": "death",
+      "day": 3,
+      "actor": "engine",
+      "target": 5,
+      "role": "seer",
+      "cause": "night"
+    },
+    {
+      "type": "night_result",
+      "day": 3,
+      "actor": "engine",
+      "victim": 5,
+      "saved": false,
+      "poisoned": null,
+      "deaths": [
+        5
+      ]
+    },
+    {
+      "type": "phase",
+      "day": 3,
+      "actor": "engine",
+      "phase": "day",
+      "text": "第 3 天发言开始。"
+    },
+    {
+      "type": "speech",
+      "day": 3,
+      "actor": 3,
+      "text": "目前我更关注 7 号的行为，建议大家把发言和投票逻辑对齐。"
+    },
+    {
+      "type": "speech",
+      "day": 3,
+      "actor": 4,
+      "text": "目前我更关注 4 号的行为，建议大家把发言和投票逻辑对齐。"
+    },
+    {
+      "type": "speech",
+      "day": 3,
+      "actor": 7,
+      "text": "我倾向于怀疑 4 号，白天发言比较保守，可能在隐藏视角。"
+    },
+    {
+      "type": "vote",
+      "day": 3,
+      "actor": 3,
+      "target": 4
+    },
+    {
+      "type": "vote",
+      "day": 3,
+      "actor": 4,
+      "target": 3
+    },
+    {
+      "type": "vote",
+      "day": 3,
+      "actor": 7,
+      "target": 4
+    },
+    {
+      "type": "death",
+      "day": 3,
+      "actor": "engine",
+      "target": 4,
+      "role": "villager",
+      "cause": "exile"
+    },
+    {
+      "type": "exile",
+      "day": 3,
+      "actor": "engine",
+      "target": 4,
+      "role": "villager",
+      "voters": [
+        3,
+        7
+      ],
+      "text": "4 号被放逐，身份为村民。"
+    },
+    {
+      "type": "game_over",
+      "day": 3,
+      "actor": "engine",
+      "winner": "wolves",
+      "reason": "狼人数量不少于好人数量。"
+    }
+  ],
+  "private_events": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [
+      {
+        "type": "seer_result",
+        "day": 1,
+        "actor": 5,
+        "target": 3,
+        "side": "good"
+      },
+      {
+        "type": "seer_result",
+        "day": 2,
+        "actor": 5,
+        "target": 8,
+        "side": "wolves"
+      },
+      {
+        "type": "seer_result",
+        "day": 3,
+        "actor": 5,
+        "target": 7,
+        "side": "wolves"
+      }
+    ],
+    "6": [],
+    "7": [
+      {
+        "type": "wolf_team",
+        "wolves": [
+          7,
+          8
+        ]
+      }
+    ],
+    "8": [
+      {
+        "type": "wolf_team",
+        "wolves": [
+          7,
+          8
+        ]
+      }
+    ]
+  },
+  "final_alive": [
+    3,
+    7
+  ]
+}

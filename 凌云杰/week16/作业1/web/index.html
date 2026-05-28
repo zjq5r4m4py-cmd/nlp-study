@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 狼人杀观战台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar">
+        <div>
+          <h1>AI 狼人杀观战台</h1>
+          <p id="subtitle">多 Agent 协作、对抗与信息隔离演示</p>
+        </div>
+        <div class="actions">
+          <button id="loadDemo" type="button">加载示例</button>
+          <button id="prev" type="button" aria-label="上一步">◀</button>
+          <button id="next" type="button" aria-label="下一步">▶</button>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="panel players">
+          <div class="panelHead">
+            <h2>玩家状态</h2>
+            <span id="winnerBadge">等待载入</span>
+          </div>
+          <div id="players"></div>
+        </aside>
+
+        <section class="stage">
+          <div class="phaseLine">
+            <span id="stepText">Step 0 / 0</span>
+            <input id="timeline" type="range" min="0" value="0" />
+          </div>
+          <div id="currentEvent" class="currentEvent"></div>
+          <div id="eventLog" class="eventLog"></div>
+        </section>
+
+        <aside class="panel review">
+          <h2>复盘指标</h2>
+          <div id="metrics"></div>
+          <h2>私有信息</h2>
+          <div id="privateInfo"></div>
+        </aside>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
